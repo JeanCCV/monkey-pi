@@ -1,6 +1,6 @@
 # THE MONKEY-PI PROJECT
 
-PArm es un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
+Monkey-Pi es un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
 
 **Software utilizado:** 
   - Python 3: https://www.python.org/ 
