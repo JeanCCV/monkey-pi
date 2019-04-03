@@ -1,6 +1,6 @@
-# THE PI-ARM PROJECT
+# THE MONKEY-PI PROJECT
 
-Pi-Arm es un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
+PArm es un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
 
 **Software utilizado:** 
   - Python 3: https://www.python.org/ 
