@@ -34,6 +34,7 @@ from dobot.DobotKinematics import *
 import timeit
 import math
 import sys
+import pickle
 
 # Workaround to support Python 2/3
 if sys.version_info > (3,):
@@ -156,9 +157,19 @@ class Dobot:
 		self._baseSteps = long(0)
 		self._rearSteps = long((rearAngle / piTwo) * rearArmActualStepsPerRevolution + 0.5)
 		self._frontSteps = long((frontAngle / piTwo) * frontArmActualStepsPerRevolution + 0.5)
+
+		#Jean pickle
+		pickle_in = open("steps.pickle","rb")
+		stepsForzados = pickle.load(pickle_in)
+
+		self._baseSteps = stepsForzados.get("_baseSteps")
+		self._rearSteps = stepsForzados.get("_rearSteps")
+		self._frontSteps = stepsForzados.get("_frontSteps")
+
 		self._driver.SetCounters(self._baseSteps, self._rearSteps, self._frontSteps)
 		print("Initializing with steps:", self._baseSteps, self._rearSteps, self._frontSteps)
 		print("Reading back what was set:", self._driver.GetCounters())
+
 		currBaseAngle = piTwo * self._baseSteps / baseActualStepsPerRevolution
 		currRearAngle = piHalf - piTwo * self._rearSteps / rearArmActualStepsPerRevolution
 		currFrontAngle = piTwo * self._frontSteps / frontArmActualStepsPerRevolution
@@ -499,7 +510,13 @@ class Dobot:
 
 			self._baseSteps += movedStepsBase
 			self._rearSteps += movedStepsRear
-			self._frontSteps += movedStepsFront
+			self._frontSteps += movedStepsFront	
+
+			#Jean Implementando serializacion con pickle
+			stepsForce = { "_baseSteps": self._baseSteps, "_rearSteps": self._rearSteps, "_frontSteps": self._frontSteps }
+			pickle_out = open("steps.pickle","wb")
+			pickle.dump(stepsForce, pickle_out)
+			pickle_out.close()
 
 			currBaseAngle = piTwo * self._baseSteps / baseActualStepsPerRevolution
 			currRearAngle = piHalf - piTwo * self._rearSteps / rearArmActualStepsPerRevolution
@@ -515,6 +532,8 @@ class Dobot:
 				toPlot7.append(cX - nextX)
 				toPlot8.append(cY - nextY)
 				toPlot9.append(cZ - nextZ)
+		
+		
 
 		self._toolRotation = toolRotation
 
