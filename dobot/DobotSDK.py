@@ -363,6 +363,24 @@ class Dobot:
 		self._moveArmToAngles(baseAngle, rearAngle, frontAngle, duration)
 
 	def MoveWithSpeed(self, x, y, z, maxSpeed, accel=None, toolRotation=None):
+
+		lengthRearArm = 135.0
+		lengthForearm = 160.0
+		distanceTool = 50.9
+		heightFromBase = 80.0 + 23.0
+		maxDistance = lengthRearArm + lengthForearm
+
+		def hypothenuse(a, b):
+			return math.sqrt(math.pow(a, 2) + math.pow(b, 2))
+
+		radius = hypothenuse(x, y) + distanceTool
+		height = z - heightFromBase
+		distance = hypothenuse(radius, height)		
+
+		if (distance > maxDistance):
+			print("No se puede etericar tanto",(x, y, z), 'distance', distance)
+			return 0
+
 		'''
 		For toolRotation see DobotDriver.Steps() function description (servoRot parameter).
 		'''

@@ -12,7 +12,7 @@ speed = 400
 # Acceleration in mm/s^2
 acceleration = 300
 
-dobot = Dobot('COM7',debug=False)
+dobot = Dobot('COM7',debug=False,fake=True)
 
 
 # dobot.MoveWithSpeed(210.9, 0, 238, acceleration)
