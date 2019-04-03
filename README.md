@@ -1,6 +1,6 @@
 # THE PI-ARM PROJECT
 
-Proyecto final de robotica para ingenieria de sistemas, consiste en un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
+Pi-Arm es un brazo robotico controlado por voz capaz de interactuar con objetos sobre una mesa utilizando una camara para ubicar e identificar los objetos
 
 **Software utilizado:** 
   - Python 3: https://www.python.org/ 
