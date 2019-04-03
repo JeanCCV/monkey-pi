@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from scipy import optimize
 
-from color_tracker.utils.tracker_object import TrackedObject
+from .tracker_object import TrackedObject
 
 
 def crop_out_polygon_convex(image: np.ndarray, point_array: np.ndarray) -> np.ndarray:

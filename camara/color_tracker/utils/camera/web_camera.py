@@ -1,6 +1,6 @@
 import cv2
 
-from color_tracker.utils.camera.base_camera import Camera
+from .base_camera import Camera
 
 
 class WebCamera(Camera):

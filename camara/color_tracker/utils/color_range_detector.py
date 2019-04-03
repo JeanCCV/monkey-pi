@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-from color_tracker.utils import helpers
-from color_tracker.utils.camera import Camera
+from . import helpers
+from .camera import Camera
 
 
 class HSVColorRangeDetector:

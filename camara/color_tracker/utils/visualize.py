@@ -4,7 +4,7 @@ from typing import Tuple
 
 import cv2
 
-from color_tracker.utils.tracker_object import TrackedObject
+from .tracker_object import TrackedObject
 
 
 def random_colors(nb_of_colors: int, brightness: float = 1.0):

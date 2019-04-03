@@ -4,9 +4,9 @@ from typing import Union, List, Callable
 import cv2
 import numpy as np
 
-from color_tracker.utils import helpers, visualize
-from color_tracker.utils.camera import Camera
-from color_tracker.utils.tracker_object import TrackedObject
+from ..utils import helpers, visualize
+from ..utils.camera import Camera
+from ..utils.tracker_object import TrackedObject
 
 
 class ColorTracker(object):
@@ -109,6 +109,12 @@ class ColorTracker(object):
         self._is_running = True
 
         while True:
+
+            if not self._is_running:
+                camera.release()
+                cv2.destroyAllWindows()
+                break
+
             self._frame = self._read_from_camera(camera, horizontal_flip)
 
             if self._frame_preprocessor is not None:

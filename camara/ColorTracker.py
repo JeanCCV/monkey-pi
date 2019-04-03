@@ -1,5 +1,5 @@
 import cv2
-import color_tracker
+from . import color_tracker
 
 cordenadas = []
 
@@ -32,7 +32,7 @@ class ColorTracker:
                 global cordenadas        
                 cordenadas = obj.last_point
                 # print("El objeto rojo esta en: {0}".format(cordenadas))  
-                tracker.stop_tracking()                
+                tracker.stop_tracking()
 
         tracker = color_tracker.ColorTracker(max_nb_of_objects=1, max_nb_of_points=1)
         tracker.set_tracking_callback(tracker_callback)
