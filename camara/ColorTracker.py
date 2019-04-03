@@ -9,9 +9,15 @@ class ColorTracker:
         print("Color tracker initialized")       
 
         # pendiente definir espectros de colores a usar
-        # self.rojo
-        # self.azul
-        # self.amarillo
+        #rojo
+        self.upper_rojo = [0, 21, 154]
+        self.lower_rojo = [2, 192, 255]
+        #azul
+        self.upper_azul = [108, 93, 89]
+        self.lower_azul = [129, 220, 255]
+        #amarillo
+        self.upper_amarillo = [20,100,100]
+        self.lower_amarillo = [30,255,255]
 
     def FindColor(self,color):    
         def tracker_callback(t: color_tracker.ColorTracker): 
@@ -26,17 +32,26 @@ class ColorTracker:
                 global cordenadas        
                 cordenadas = obj.last_point
                 # print("El objeto rojo esta en: {0}".format(cordenadas))  
-                tracker.stop_tracking()
+                tracker.stop_tracking()                
 
         tracker = color_tracker.ColorTracker(max_nb_of_objects=1, max_nb_of_points=1)
         tracker.set_tracking_callback(tracker_callback)
 
-        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 27))   
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (30, 27))           
 
         with color_tracker.WebCamera() as cam:
             #Pendiente llamar parametros de colores
-            lowerHSV = [0, 21, 154]
-            upperHSV = [2, 192, 255]
+            lowerHSV = []
+            upperHSV = []
+            if (color == "rojo"):            
+                lowerHSV = self.upper_rojo
+                upperHSV = self.lower_rojo
+            elif (color == "azul"):
+                lowerHSV = self.upper_azul
+                upperHSV = self.lower_azul
+            elif (color == "amarillo"):
+                lowerHSV = self.upper_amarillo
+                upperHSV = self.lower_amarillo
 
             print("Finding object with the especified color...")            
             # Define your custom Lower and Upper HSV values

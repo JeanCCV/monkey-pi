@@ -41,3 +41,4 @@ class WebCamera(Camera):
     def release(self):
         super().release()
         self._cam.release()
+        cv2.destroyAllWindows()

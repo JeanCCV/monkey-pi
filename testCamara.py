@@ -2,6 +2,9 @@ from camara import ColorTracker
 
 tracker = ColorTracker(debug=True)
 
-Ubicacion = tracker.FindColor("rojo")
+while True:
+    UbicacionAzul = tracker.FindColor("azul")
+    print("El objeto azul esta en: {0}".format(UbicacionAzul))
 
-print("El objeto rojo esta en: {0}".format(Ubicacion))
+    UbicacionRojo = tracker.FindColor("rojo")
+    print("El objeto rojo esta en: {0}".format(UbicacionRojo))
