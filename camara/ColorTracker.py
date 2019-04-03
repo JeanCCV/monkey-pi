@@ -53,7 +53,7 @@ class ColorTracker:
                 lowerHSV = self.upper_amarillo
                 upperHSV = self.lower_amarillo
 
-            print("Finding object with the especified color...")            
+            print("Buscando el objeto",color,"...")            
             # Define your custom Lower and Upper HSV values
             tracker.track(cam, lowerHSV, upperHSV, max_skipped_frames=24,min_contour_area=4000,kernel = kernel)
 

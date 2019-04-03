@@ -1,6 +1,6 @@
 from camara import ColorTracker
 
-tracker = ColorTracker(debug=True)
+tracker = ColorTracker(debug=False)
 
 UbicacionAzul = tracker.FindColor("azul")
 print("*** El objeto azul esta en: {0}".format(UbicacionAzul))
