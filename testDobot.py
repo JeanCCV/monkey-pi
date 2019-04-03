@@ -14,28 +14,17 @@ acceleration = 300
 
 dobot = Dobot('COM7',debug=False,fake=True)
 
-
-# dobot.MoveWithSpeed(210.9, 0, 238, acceleration)
-
-# dobot.MoveWithSpeed(135, 0, 100, acceleration)
-
-
 while True:
 	try:
 		dobot.MoveWithSpeed(210.9, 150, 238, acceleration)
 		dobot.MoveWithSpeed(0, 150, 238, 50, acceleration)
 		dobot.MoveWithSpeed(210.9, 150, 238, acceleration)
-
 		dobot.MoveWithSpeed(210.9, 0, 238, acceleration)
-
 		dobot.MoveWithSpeed(210.9, -150, 238, acceleration)
 		dobot.MoveWithSpeed(0, -150, 238, 50, acceleration)
 		dobot.MoveWithSpeed(210.9, -150, 238, acceleration)
-
 		dobot.MoveWithSpeed(210.9, 0, 180, acceleration)
 		dobot.MoveWithSpeed(240, 0, 180, acceleration)
 
 	finally:
 		dobot.MoveWithSpeed(210.9, 0, 238,  acceleration)
-
-# dobot.MoveWithSpeed(50.90000000000002, 0, 78.0, speed, acceleration)
