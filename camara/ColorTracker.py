@@ -10,11 +10,11 @@ class ColorTracker:
 
         # pendiente definir espectros de colores a usar
         #rojo
-        self.upper_rojo = [0, 21, 154]
-        self.lower_rojo = [2, 192, 255]
+        self.upper_rojo = [0, 70, 50]
+        self.lower_rojo = [10, 255, 255]
         #azul
-        self.upper_azul = [108, 93, 89]
-        self.lower_azul = [129, 220, 255]
+        self.upper_azul = [170, 70, 50]
+        self.lower_azul = [180, 255, 255]
         #amarillo
         self.upper_amarillo = [20,100,100]
         self.lower_amarillo = [30,255,255]
