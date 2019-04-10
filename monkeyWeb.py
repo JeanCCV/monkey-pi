@@ -10,6 +10,8 @@ app = Flask(__name__)
 speed = 400
 acceleration = 300
 
+conectado = False
+
 # dobot = Dobot('/dev/ttyACM0',debug=False)
 
 @app.route('/buscar/<string:color>')
@@ -33,6 +35,8 @@ def buscar(color):
         print("*** {0} esta a la derecha".format(color))
         dobot.MoveWithSpeed(230, 45, 110, acceleration) #derecha arriba
         dobot.MoveWithSpeed(230, 40, 70, acceleration) #derecha
+    else:
+        return "algo anda mal"
     dobot.Gripper(480) # cerrar
     dobot.Wait(0.10)
     dobot.MoveWithSpeed(210.9, 0, 238, acceleration) # voler al medio
@@ -40,7 +44,24 @@ def buscar(color):
     dobot.Gripper(208) # abrir
     dobot.Wait(0.10)
     dobot.MoveWithSpeed(210.9, 0, 238, acceleration) # voler al medio
+
+    # dobot.Gripper(480) # cerrar
+    # dobot.Wait(0.10)
+
+
+    # dobot.MoveWithSpeed(180, 90, 110, acceleration) #izquierda arriba
+
+    # dobot.Gripper(208) # abrir
+    # dobot.Wait(0.10)
+
+
+    # dobot.Gripper(208) # abrir
+    # dobot.Wait(0.10)
+
+
+    dobot.MoveWithSpeed(210.9, 0, 238, acceleration) # voler al medio
+
     return "nitido"
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',port=5001,debug=True)
+    app.run(host='127.0.0.1',port=5353,debug=True)
